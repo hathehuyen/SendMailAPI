@@ -4,10 +4,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-from sendmailapi import app
+from sendapi import app
 
 
-@app.route('/sendmail', methods=['POST'], endpoint='sendmail')
+@app.route('/send', methods=['POST'], endpoint='send')
 def sendmail():
     try:
         if request.method == 'POST':
