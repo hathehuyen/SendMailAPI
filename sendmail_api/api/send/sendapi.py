@@ -4,7 +4,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-from sendapi import app
+from sendmail_api import app
 
 
 @app.route('/send', methods=['POST'], endpoint='send')
