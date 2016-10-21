@@ -14,15 +14,15 @@ def sendmail():
             msg['Subject'] = app.config['SUBJECT']
             me = app.config['FROM']
             family = app.config['RCPT_TO']
-            msg['From'] = me
+            msg['From'] = app.config['FROM']
             msg['To'] = family
             msgtext = request.values['msg']
             txtpart = MIMEText(msgtext, 'plain')
             msg.attach(txtpart)
             s = smtplib.SMTP('localhost')
-            s.sendmail(me, family, msg.as_string())
+            s.sendmail(me, family.split(","), msg.as_string())
             s.quit()
-            return jsonify(result=True, adminId=1)
+            return jsonify(result=True)
     except Exception as exc:
         print(exc)
         print 'Send mail error'
