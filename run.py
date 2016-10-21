@@ -1,4 +1,4 @@
-import app
+from sendmailapiserver import app
 #from flask_cors  import COR
 
 
