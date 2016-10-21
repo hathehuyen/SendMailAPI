@@ -4,7 +4,7 @@ Created on Oct 21, 2016
 @author: HuyenHa
 '''
 
-from flask import Flask, render_template
+from flask import Flask
 import config
 
 app = Flask(__name__)

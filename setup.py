@@ -9,7 +9,6 @@ setup(
         zip_safe=False,
         install_requires=[
             'Flask',
-            'phonenumbers',
-            'erppeek'
+            'smtplib'
         ]
 )

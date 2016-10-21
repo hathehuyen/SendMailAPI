@@ -5,5 +5,6 @@ Created on Oct 21, 2016
 '''
 
 class DefaultConfig(object):
-    SEND_TO = "hathehuyen@gmail.com, abc@yahoo.com"
+    FROM = "hathehuyen@gmail.com"
+    RCPT_TO = "hathehuyen@gmail.com, abc@yahoo.com"
 
