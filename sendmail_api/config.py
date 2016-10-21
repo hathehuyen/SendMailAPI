@@ -5,6 +5,7 @@ Created on Oct 21, 2016
 '''
 
 class DefaultConfig(object):
-    FROM = "hathehuyen@gmail.com"
-    RCPT_TO = "hathehuyen@gmail.com, abc@yahoo.com"
+    SUBJECT = "System Email"
+    FROM = "huyen@queenbeeco.vn"
+    RCPT_TO = "hathehuyen@gmail.com, hathehuyen@live.com"
 
