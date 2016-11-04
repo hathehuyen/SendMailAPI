@@ -2,7 +2,8 @@ from flask import jsonify, request
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
+import mysql.connector as mariadb
+from datetime import datetime
 from sendmail_api import app
 
 
@@ -22,10 +23,27 @@ def sendmail():
             s = smtplib.SMTP('localhost')
             s.sendmail(me, family.split(","), msg.as_string())
             s.quit()
+            mariadb_connection = mariadb.connect(host='128.199.136.222', user='maillog', password='maillog',
+                                                 database='maillog')
+            cursor = mariadb_connection.cursor()
+            time = datetime.now()
+            sent = True
+            cursor.execute("INSERT INTO maillog (time, content, sent) VALUES (%s, %s, %s)", (time, msgtext, sent))
+            mariadb_connection.commit()
+            mariadb_connection.disconnect()
             return jsonify(result=True)
     except Exception as exc:
         print(exc)
         print 'Send mail error'
         print request.values
+        msgtext = request.values['msg']
+        mariadb_connection = mariadb.connect(host='128.199.136.222', user='maillog', password='maillog',
+                                             database='maillog')
+        cursor = mariadb_connection.cursor()
+        time = datetime.now()
+        sent = False
+        cursor.execute("INSERT INTO maillog (time, content, sent) VALUES (%s, %s, %s)", (time, msgtext, sent))
+        mariadb_connection.commit()
+        mariadb_connection.disconnect()
         return jsonify(result=False)
 

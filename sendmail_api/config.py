@@ -7,5 +7,5 @@ Created on Oct 21, 2016
 class DefaultConfig(object):
     SUBJECT = "System Email"
     FROM = "noreply@daylacaigivay.tk"
-    RCPT_TO = "ldthien@queenbeeco.vn,hathehuyen@gmail.com"
+    RCPT_TO = "hathehuyen@gmail.com"
 
